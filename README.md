@@ -28,6 +28,13 @@ svc_final_predictions, svc_score = ouput_final_model(model, train, test, feature
 pickle.dump(svc_final_predictions, open('svc_final_predictions.pkl', 'wb'))
 
 ```
+```python
+preds = [rf_final_predictions, svc_final_predictions, adaboost_final_predictions]
+#Decided on weights based on the model scores
+weights = [0.5,0.3,0.2]
+predictions = sum([weights[x] * preds[x]["prediction"].astype(int) for x in range(3)])
+predictions = [int(round(p)) for p in predictions]
+```
 <br>
 In order to improve the similarity between the searches and their description we wanted to see all the possible combinations tokens of sting and then compare them.
 ```python
@@ -54,7 +61,16 @@ def get_n(str, n):
             n.append(tuple(ng))
     return ng
 ```
+```python
+# Load the training file
+train = pd.read_csv("train.csv").fillna("")
+test  = pd.read_csv("test.csv").fillna("")
+```
 we mostly relied on numpy and SVD, and for the training part, on keras.<br>
+
+```python
+submission.to_csv('Tamir_Yaniv_Sub.csv', index=False)
+```
 <br>
 The ScreenShot:<br>
 ![alt tag](SSPosition.jpg)
