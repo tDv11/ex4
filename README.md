@@ -11,3 +11,6 @@ to decode we calculated the precentage of any relevant level, by that we rank th
 25-50 was set to 3
 and 50-100 to 4.
 we mostly relied on numpy and SVD, and for the training part, on keras.
+
+The ScreenShot:
+![alt tag](SSPosition.jpg)
