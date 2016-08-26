@@ -66,7 +66,7 @@ def get_n(str, n):
 train = pd.read_csv("train.csv").fillna("")
 test  = pd.read_csv("test.csv").fillna("")
 ```
-we mostly relied on numpy and SVD, and for the training part, on keras.<br>
+we mostly relied on numpy and SV, and for the training part, on keras.<br>
 
 ```python
 submission.to_csv('Tamir_Yaniv_Sub.csv', index=False)
